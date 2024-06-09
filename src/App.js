@@ -3,6 +3,9 @@ import { useState } from "react";
 function App() {
   const [userName, setUserName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
+  const [checkedOne, setCheckedOne] = useState(false);
+  const [checkedTwo, setCheckedTwo] = useState(false);
+  const [checkedThree, setCheckedThree] = useState(false);
 
   return (
     <main>
@@ -24,7 +27,7 @@ function App() {
         <a href="https://linkedin.com">LinkedIn</a>
       </div>
       <div>
-        <form>
+        <form htmlFor="user-name">
           <label>User Name: </label>
           <input
             type="text"
@@ -32,13 +35,19 @@ function App() {
             placeholder="User Name"
             value={userName}
           />
-          <label>Email Address: </label>
+          <label htmlFor="email-address">Email Address: </label>
           <input
             type="text"
             id="email-address"
             placeholder="Email Address"
             value={emailAddress}
           />
+          <input type="checkbox" id="interest-one" checked={checkedOne} />
+          <label htmlFor="interest-one">Interest One</label>
+          <input type="checkbox" id="interest-two" checked={checkedTwo} />
+          <label htmlFor="interest-two">Interest Two</label>
+          <input type="checkbox" id="interest-three" checked={checkedThree} />
+          <label htmlFor="interest-three">Interest Three</label>
         </form>
       </div>
     </main>

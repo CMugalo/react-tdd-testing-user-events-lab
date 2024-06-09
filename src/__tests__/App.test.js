@@ -77,10 +77,30 @@ test("the form includes text inputs for name and email address", () => {
 
 test("the form includes three checkboxes to select areas of interest", () => {
   // your test code here
+  render(<App />);
+  const interestOne = screen.getByRole("checkbox", { name: /interest one/i });
+  const interestTwo = screen.getByRole("checkbox", { name: /interest two/i });
+  const interestThree = screen.getByRole("checkbox", {
+    name: /interest three/i,
+  });
+
+  expect(interestOne).toBeInTheDocument();
+  expect(interestTwo).toBeInTheDocument();
+  expect(interestThree).toBeInTheDocument();
 });
 
 test("the checkboxes are initially unchecked", () => {
   // your test code here
+  render(<App />);
+  const interestOne = screen.getByRole("checkbox", { name: /interest one/i });
+  const interestTwo = screen.getByRole("checkbox", { name: /interest two/i });
+  const interestThree = screen.getByRole("checkbox", {
+    name: /interest three/i,
+  });
+
+  expect(interestOne).not.toBeChecked();
+  expect(interestTwo).not.toBeChecked();
+  expect(interestThree).not.toBeChecked();
 });
 
 // Newsletter Form - Adding Responses
