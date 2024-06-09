@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 
 import App from "../App";
@@ -106,6 +107,15 @@ test("the checkboxes are initially unchecked", () => {
 // Newsletter Form - Adding Responses
 test("the page shows information the user types into the name and email address form fields", () => {
   // your test code here
+  render(<App />);
+  const nameText = screen.getByLabelText(/user name/i);
+  const emailText = screen.getByLabelText(/email address/i);
+
+  userEvent.type(nameText, "christian mugalo");
+  expect(nameText).toHaveValue("christian mugalo");
+
+  userEvent.type(emailText, "christian.mugalo@gmail.com");
+  expect(emailText).toHaveValue("christian.mugalo@gmail.com");
 });
 
 test("checked status of checkboxes changes when user clicks them", () => {

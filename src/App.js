@@ -7,6 +7,9 @@ function App() {
   const [checkedTwo, setCheckedTwo] = useState(false);
   const [checkedThree, setCheckedThree] = useState(false);
 
+  const handleNameChange = (e) => setUserName(e.target.value);
+  const handleEmailChange = (e) => setEmailAddress(e.target.value);
+
   return (
     <main>
       <h1>Hi, I'm (your name)</h1>
@@ -28,12 +31,13 @@ function App() {
       </div>
       <div>
         <form htmlFor="user-name">
-          <label>User Name: </label>
+          <label htmlFor="user-name">User Name: </label>
           <input
             type="text"
             id="user-name"
             placeholder="User Name"
             value={userName}
+            onChange={handleNameChange}
           />
           <label htmlFor="email-address">Email Address: </label>
           <input
@@ -41,6 +45,7 @@ function App() {
             id="email-address"
             placeholder="Email Address"
             value={emailAddress}
+            onChange={handleEmailChange}
           />
           <input type="checkbox" id="interest-one" checked={checkedOne} />
           <label htmlFor="interest-one">Interest One</label>
