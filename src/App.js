@@ -6,6 +6,7 @@ function App() {
   const [checkedOne, setCheckedOne] = useState(false);
   const [checkedTwo, setCheckedTwo] = useState(false);
   const [checkedThree, setCheckedThree] = useState(false);
+  const [formData, setFormData] = useState(false);
 
   const handleNameChange = (e) => setUserName(e.target.value);
   const handleEmailChange = (e) => setEmailAddress(e.target.value);
@@ -13,6 +14,10 @@ function App() {
   const handleInterestTwo = () => setCheckedTwo((checkedTwo) => !checkedTwo);
   const handleInterestThree = () =>
     setCheckedThree((checkedThree) => !checkedThree);
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setFormData(true);
+  };
 
   return (
     <main>
@@ -34,7 +39,7 @@ function App() {
         <a href="https://linkedin.com">LinkedIn</a>
       </div>
       <div>
-        <form htmlFor="user-name">
+        <form htmlFor="user-name" onSubmit={handleFormSubmit} value={formData}>
           <label htmlFor="user-name">User Name: </label>
           <input
             type="text"
@@ -72,6 +77,8 @@ function App() {
             onChange={handleInterestThree}
           />
           <label htmlFor="interest-three">Interest Three</label>
+          <button>Submit Form</button>
+          {formData ? <p>Your form has been submitted successfully!</p> : null}
         </form>
       </div>
     </main>
