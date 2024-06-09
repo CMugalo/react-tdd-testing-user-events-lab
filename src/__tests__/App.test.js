@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 
 import App from "../App";
 
@@ -67,6 +67,12 @@ test("displays the correct links", () => {
 // Newsletter Form - Initial State
 test("the form includes text inputs for name and email address", () => {
   // your test code here
+  render(<App />);
+  const nameInput = screen.getByPlaceholderText(/user name/i);
+  const emailInput = screen.getByPlaceholderText(/email address/i);
+
+  expect(nameInput).toBeInTheDocument();
+  expect(emailInput).toBeInTheDocument();
 });
 
 test("the form includes three checkboxes to select areas of interest", () => {

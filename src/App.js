@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 function App() {
+  const [userName, setUserName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+
   return (
     <main>
       <h1>Hi, I'm (your name)</h1>
@@ -17,6 +22,24 @@ function App() {
       <div>
         <a href="https://github.com">GitHub</a>
         <a href="https://linkedin.com">LinkedIn</a>
+      </div>
+      <div>
+        <form>
+          <label>User Name: </label>
+          <input
+            type="text"
+            id="user-name"
+            placeholder="User Name"
+            value={userName}
+          />
+          <label>Email Address: </label>
+          <input
+            type="text"
+            id="email-address"
+            placeholder="Email Address"
+            value={emailAddress}
+          />
+        </form>
       </div>
     </main>
   );
