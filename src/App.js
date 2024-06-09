@@ -9,6 +9,10 @@ function App() {
 
   const handleNameChange = (e) => setUserName(e.target.value);
   const handleEmailChange = (e) => setEmailAddress(e.target.value);
+  const handleInterestOne = () => setCheckedOne((checkedOne) => !checkedOne);
+  const handleInterestTwo = () => setCheckedTwo((checkedTwo) => !checkedTwo);
+  const handleInterestThree = () =>
+    setCheckedThree((checkedThree) => !checkedThree);
 
   return (
     <main>
@@ -47,11 +51,26 @@ function App() {
             value={emailAddress}
             onChange={handleEmailChange}
           />
-          <input type="checkbox" id="interest-one" checked={checkedOne} />
+          <input
+            type="checkbox"
+            id="interest-one"
+            checked={checkedOne}
+            onChange={handleInterestOne}
+          />
           <label htmlFor="interest-one">Interest One</label>
-          <input type="checkbox" id="interest-two" checked={checkedTwo} />
+          <input
+            type="checkbox"
+            id="interest-two"
+            checked={checkedTwo}
+            onChange={handleInterestTwo}
+          />
           <label htmlFor="interest-two">Interest Two</label>
-          <input type="checkbox" id="interest-three" checked={checkedThree} />
+          <input
+            type="checkbox"
+            id="interest-three"
+            checked={checkedThree}
+            onChange={handleInterestThree}
+          />
           <label htmlFor="interest-three">Interest Three</label>
         </form>
       </div>

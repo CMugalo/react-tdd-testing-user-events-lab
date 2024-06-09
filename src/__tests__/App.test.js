@@ -120,6 +120,32 @@ test("the page shows information the user types into the name and email address 
 
 test("checked status of checkboxes changes when user clicks them", () => {
   // your test code here
+  render(<App />);
+  const interestOne = screen.getByRole("checkbox", { name: /interest one/i });
+
+  userEvent.click(interestOne);
+  expect(interestOne).toBeChecked();
+
+  userEvent.click(interestOne);
+  expect(interestOne).not.toBeChecked();
+
+  const interestTwo = screen.getByRole("checkbox", { name: /interest two/i });
+
+  userEvent.click(interestTwo);
+  expect(interestTwo).toBeChecked();
+
+  userEvent.click(interestTwo);
+  expect(interestTwo).not.toBeChecked();
+
+  const interestThree = screen.getByRole("checkbox", {
+    name: /interest three/i,
+  });
+
+  userEvent.click(interestThree);
+  expect(interestThree).toBeChecked();
+
+  userEvent.click(interestThree);
+  expect(interestThree).not.toBeChecked();
 });
 
 test("a message is displayed when the user clicks the Submit button", () => {
